@@ -12,6 +12,18 @@ export const register =  async (body) => {
     return await response.json()
 }
 
+export const login =  async (body) => {
+    const response = await fetch (`${url}/login`,{
+        method:'POST',
+        headers:{
+            Accept:"application/json",
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+    return await response.json()
+}
+
 export const checkToken =  async (token) => {
     const response = await fetch (`${url}/check-token`,{
         method:'GET',
@@ -23,3 +35,4 @@ export const checkToken =  async (token) => {
     })
     return await response.json()
 }
+

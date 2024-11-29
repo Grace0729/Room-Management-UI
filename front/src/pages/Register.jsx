@@ -7,6 +7,7 @@ import { toast } from 'react-toastify'
 import { useCookies } from 'react-cookie'
 import { useDispatch } from 'react-redux'
 import { login } from '../redux/authSlice'
+import logoImage from './image/mfi-logo.png'
 
 export default function Register() {
 
@@ -46,16 +47,15 @@ export default function Register() {
 
 return (
 <Box sx={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        {/* <Box sx={{height:400, width:800,boxShadow:'#01411C 5px 5px 20px 5px',borderRadius:'20px',backgroundColor:'White',display:'grid',gridTemplateColumns:' repeat(auto-fit, minmax(150px, 1fr))',gridTemplateRows:'repeat(3, 200px)',gap:'20px',padding:'20px'}}> */}
-        <Box sx={{height:400, width:400,boxShadow:'#01411C 5px 5px 20px 5px',borderRadius:'20px', padding:'10px'}}>
+<Box sx={{ height: 350, width: 350, border: '1px solid black', borderRadius: '20px', padding:'20px',boxShadow:'2px 2px 10px 2px #0C356A'}}>
 
-            <Typography variant='h4' sx={{ textAlign: 'center'}}>
-              Register
+            <Typography variant='h4' sx={{ textAlign: 'center', fontFamily:'Georgia'}}>
+                Sign Up
             </Typography>
-
+            
             <Box component="form" onSubmit={onSubmit} >
-            <Box sx={{ mt: 5 }}>
-              <TextField required id="name" fullWidth size="small" label="Username"/>
+            <Box sx={{ mt: 2}}>
+              <TextField required id="name" fullWidth size="small" label="Username" sx={{border:'1px solid black', borderRadius:'5px'}}/>
               {
                 warnings?.name ? (
                   <Typography sx={{fontSize: 12}}component="small" color="error">{warnings.name}</Typography>
@@ -63,8 +63,8 @@ return (
               }
             </Box>
 
-            <Box sx={{ mt: 2 }}>
-              <TextField required id="email" fullWidth size="small" label="Email"type="email"/>
+            <Box sx={{ mt: 2}}>
+              <TextField required id="email" fullWidth size="small" label="Email"type="email" sx={{border:'1px solid black', borderRadius:'5px'}}/>
               {
                 warnings?.email ? (
                   <Typography sx={{fontSize: 12}}component="small" color="error">{warnings.email}</Typography>
@@ -73,7 +73,7 @@ return (
             </Box>
 
             <Box sx={{ mt: 2 }}>
-               <TextField required id="password" fullWidth size="small" label="Password" type="Password"/>
+               <TextField required id="password" fullWidth size="small" label="Password" type="Password" sx={{border:'1px solid black', borderRadius:'5px'}}/>
                {
                 warnings?.password ? (
                   <Typography sx={{fontSize: 12}}component="small" color="error">{warnings.password}</Typography>
@@ -82,10 +82,10 @@ return (
             </Box>
             
             <Box sx={{ mt: 2 }}>
-               <TextField required id="password_confirmation" fullWidth size="small" label="Repeat Password" type="Password"/>
+               <TextField required id="password_confirmation" fullWidth size="small" label="Repeat Password" type="Password" sx={{border:'1px solid black', borderRadius:'5px'}}/>
             </Box>
 
-              <Box sx={{ mt: 2, textAlign: 'center' }}>
+            <Box sx={{ mt: 2, textAlign: 'center' }}>
               <Button disabled={loading} type="submit" variant="contained">Register</Button>
               </Box>
             <Box sx={{mt:2, textAlign:'center '}}>
@@ -96,12 +96,6 @@ return (
             </Link>
             </Box>
             </Box>
-{/* 
-            <Box>
-              <Typography variant='h4' sx={{ textAlign: 'center', mt: 3, fontWeight: 'bold' }}>
-                <img src={loginImage} alt="Login" width="350px" />
-              </Typography>
-             </Box> */}
         </Box>
     </Box>
   )
